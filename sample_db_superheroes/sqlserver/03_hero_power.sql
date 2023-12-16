@@ -1,8 +1,10 @@
 DROP TABLE IF EXISTS superhero.dbo.hero_power;
 
 CREATE TABLE superhero.dbo.hero_power (
+  id INT NOT NULL IDENTITY(1,1),
   hero_id INT DEFAULT NULL,
   power_id INT DEFAULT NULL,
+  CONSTRAINT pk_hero_power PRIMARY KEY(id),
   CONSTRAINT fk_hpo_hero FOREIGN KEY (hero_id) REFERENCES superhero.dbo.superhero (id),
   CONSTRAINT fk_hpo_po FOREIGN KEY (power_id) REFERENCES superhero.dbo.superpower (id)
 );
