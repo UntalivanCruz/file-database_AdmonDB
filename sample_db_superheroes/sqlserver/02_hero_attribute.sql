@@ -1,9 +1,11 @@
 DROP TABLE IF EXISTS superhero.dbo.hero_attribute;
 
 CREATE TABLE superhero.dbo.hero_attribute (
+  id INT NOT NULL IDENTITY(1,1),
   hero_id INT DEFAULT NULL,
   attribute_id INT DEFAULT NULL,
   attribute_value INT DEFAULT NULL,
+  CONSTRAINT pk_hero_attribute PRIMARY KEY(id),
   CONSTRAINT fk_hat_at FOREIGN KEY (attribute_id) REFERENCES superhero.dbo.attribute (id),
   CONSTRAINT fk_hat_hero FOREIGN KEY (hero_id) REFERENCES superhero.dbo.superhero (id)
 );
